@@ -191,6 +191,50 @@ style.textContent = `
 document.head.appendChild(style);
 
 // ===================================
+// SCROLL PROGRESS BAR
+// ===================================
+
+const progressBar = document.querySelector('.progress-bar');
+
+function updateProgressBar() {
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight - windowHeight;
+    const scrolled = window.pageYOffset;
+    const progress = (scrolled / documentHeight) * 100;
+    
+    if (progressBar) {
+        progressBar.style.width = progress + '%';
+    }
+}
+
+window.addEventListener('scroll', updateProgressBar);
+
+// ===================================
+// BACK TO TOP BUTTON
+// ===================================
+
+const backToTopButton = document.querySelector('.back-to-top');
+
+function updateBackToTopButton() {
+    if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('visible');
+    } else {
+        backToTopButton.classList.remove('visible');
+    }
+}
+
+window.addEventListener('scroll', updateBackToTopButton);
+
+if (backToTopButton) {
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+// ===================================
 // CONSOLE WELCOME MESSAGE
 // ===================================
 
