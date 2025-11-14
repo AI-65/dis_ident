@@ -1,0 +1,29 @@
+<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="diLeftGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FF6B4A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFB5A0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="diRightGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#C4B5FD;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Infinity symbol as background -->
+  <path d="M 15 30 Q 8 20, 15 15 Q 18 13, 22 15 Q 25 17, 25 30 Q 25 43, 22 45 Q 18 47, 15 45 Q 8 40, 15 30" 
+        fill="none" 
+        stroke="url(#diLeftGradient)" 
+        stroke-width="2.5" 
+        stroke-linecap="round"/>
+  
+  <path d="M 25 30 Q 32 20, 39 15 Q 42 13, 45 15 Q 48 17, 48 30 Q 48 43, 45 45 Q 42 47, 39 45 Q 32 40, 25 30" 
+        fill="none" 
+        stroke="url(#diRightGradient)" 
+        stroke-width="2.5" 
+        stroke-linecap="round"/>
+  
+  <!-- DI text -->
+  <text x="30" y="38" font-family="Inter, sans-serif" font-size="20" font-weight="700" fill="#2C2C2C" text-anchor="middle" letter-spacing="-1px">DI</text>
+</svg>
+

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dis_Ident - Admin Panel</title>
+    <link rel="stylesheet" href="admin-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="admin-logo">
+                <img src="logo-di.svg" alt="DI" style="width: 40px; filter: brightness(0) invert(1);">
+                <h2>Admin Panel</h2>
+            </div>
+            <nav class="admin-nav">
+                <a href="#" class="nav-item active" data-section="news">
+                    <span class="icon">📰</span>
+                    <span>News verwalten</span>
+                </a>
+                <a href="#" class="nav-item" data-section="materials">
+                    <span class="icon">📚</span>
+                    <span>Materialien</span>
+                    <span class="badge">Bald</span>
+                </a>
+                <a href="#" class="nav-item" data-section="workshops">
+                    <span class="icon">🎯</span>
+                    <span>Workshops</span>
+                    <span class="badge">Bald</span>
+                </a>
+                <div class="nav-divider"></div>
+                <a href="index.html" class="nav-item" target="_blank">
+                    <span class="icon">🌐</span>
+                    <span>Website ansehen</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Header -->
+            <header class="admin-header">
+                <div>
+                    <h1>News & Artikel verwalten</h1>
+                    <p>Erstellen, bearbeiten und löschen Sie News-Beiträge für Ihre Website</p>
+                </div>
+                <button class="btn-primary" id="addNewsBtn">
+                    <span>+</span> Neuer Artikel
+                </button>
+            </header>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">📄</div>
+                    <div>
+                        <div class="stat-label">Gesamt Artikel</div>
+                        <div class="stat-value" id="totalArticles">0</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📅</div>
+                    <div>
+                        <div class="stat-label">Dieser Monat</div>
+                        <div class="stat-value" id="thisMonth">0</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">✏️</div>
+                    <div>
+                        <div class="stat-label">Zuletzt bearbeitet</div>
+                        <div class="stat-value" id="lastEdited">-</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- News List -->
+            <div class="content-section">
+                <div class="section-header">
+                    <h2>Alle Artikel</h2>
+                    <div class="search-box">
+                        <input type="text" placeholder="Suchen..." id="searchInput">
+                    </div>
+                </div>
+
+                <div id="newsList" class="news-list">
+                    <!-- News items will be dynamically added here -->
+                </div>
+
+                <div id="emptyState" class="empty-state">
+                    <div class="empty-icon">📰</div>
+                    <h3>Noch keine Artikel</h3>
+                    <p>Erstellen Sie Ihren ersten News-Artikel, um loszulegen</p>
+                    <button class="btn-primary" onclick="document.getElementById('addNewsBtn').click()">
+                        Ersten Artikel erstellen
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal for Adding/Editing News -->
+    <div id="newsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Neuer Artikel</h2>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <form id="newsForm">
+                <input type="hidden" id="newsId">
+                
+                <div class="form-group">
+                    <label for="newsTitle">Titel *</label>
+                    <input type="text" id="newsTitle" required placeholder="z.B. Neue Workshop-Reihe startet">
+                </div>
+
+                <div class="form-group">
+                    <label for="newsDate">Datum *</label>
+                    <input type="text" id="newsDate" required placeholder="z.B. November 2025">
+                </div>
+
+                <div class="form-group">
+                    <label for="newsExcerpt">Kurzbeschreibung *</label>
+                    <textarea id="newsExcerpt" rows="3" required placeholder="Kurze Zusammenfassung für die Übersicht"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="newsContent">Vollständiger Inhalt (optional)</label>
+                    <textarea id="newsContent" rows="6" placeholder="Vollständiger Artikel-Text (wird auf einer Detailseite angezeigt)"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="newsCategory">Kategorie</label>
+                    <select id="newsCategory">
+                        <option value="Allgemein">Allgemein</option>
+                        <option value="Workshop">Workshop</option>
+                        <option value="Forschung">Forschung</option>
+                        <option value="Event">Event</option>
+                        <option value="Presse">Presse</option>
+                    </select>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label>
+                        <input type="checkbox" id="newsHighlight">
+                        <span>Als Highlight markieren (wird größer angezeigt)</span>
+                    </label>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="cancelBtn">Abbrechen</button>
+                    <button type="submit" class="btn-primary">Speichern</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Preview Modal -->
+    <div id="previewModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Website-Vorschau</h2>
+                <button class="close-btn" id="closePreview">&times;</button>
+            </div>
+            <div class="preview-info">
+                <p><strong>Tipp:</strong> So wird dieser Artikel auf Ihrer Website angezeigt</p>
+                <div class="preview-links">
+                    <a href="index.html#news" target="_blank" class="btn-secondary">Originale Version ansehen</a>
+                    <a href="alternative.html#news" target="_blank" class="btn-secondary">Alternative Version ansehen</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
+

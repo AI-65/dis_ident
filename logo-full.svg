@@ -1,0 +1,39 @@
+<svg width="200" height="90" viewBox="0 0 200 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="leftGradientFull" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FF6B4A;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FFB5A0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="rightGradientFull" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#C4B5FD;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Infinity symbol with parallel lines creating depth -->
+  <!-- Left loop - outer lines -->
+  <ellipse cx="50" cy="25" rx="28" ry="16" fill="none" stroke="url(#leftGradientFull)" stroke-width="2.5" opacity="1"/>
+  <ellipse cx="50" cy="25" rx="24" ry="14" fill="none" stroke="url(#leftGradientFull)" stroke-width="2" opacity="0.9"/>
+  <ellipse cx="50" cy="25" rx="20" ry="12" fill="none" stroke="url(#leftGradientFull)" stroke-width="1.8" opacity="0.8"/>
+  <ellipse cx="50" cy="25" rx="16" ry="10" fill="none" stroke="url(#leftGradientFull)" stroke-width="1.5" opacity="0.7"/>
+  <ellipse cx="50" cy="25" rx="12" ry="8" fill="none" stroke="url(#leftGradientFull)" stroke-width="1.2" opacity="0.6"/>
+  
+  <!-- Right loop - outer lines -->
+  <ellipse cx="150" cy="25" rx="28" ry="16" fill="none" stroke="url(#rightGradientFull)" stroke-width="2.5" opacity="1"/>
+  <ellipse cx="150" cy="25" rx="24" ry="14" fill="none" stroke="url(#rightGradientFull)" stroke-width="2" opacity="0.9"/>
+  <ellipse cx="150" cy="25" rx="20" ry="12" fill="none" stroke="url(#rightGradientFull)" stroke-width="1.8" opacity="0.8"/>
+  <ellipse cx="150" cy="25" rx="16" ry="10" fill="none" stroke="url(#rightGradientFull)" stroke-width="1.5" opacity="0.7"/>
+  <ellipse cx="150" cy="25" rx="12" ry="8" fill="none" stroke="url(#rightGradientFull)" stroke-width="1.2" opacity="0.6"/>
+  
+  <!-- Connecting center lines -->
+  <line x1="78" y1="25" x2="122" y2="25" stroke="url(#leftGradientFull)" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="78" y1="25" x2="122" y2="25" stroke="url(#rightGradientFull)" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+  
+  <!-- Text: dis_ident -->
+  <text x="100" y="65" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#2C2C2C" text-anchor="middle" letter-spacing="-0.5px">dis_ident</text>
+  
+  <!-- Tagline: Verstehen, was verbindet -->
+  <text x="100" y="82" font-family="Inter, sans-serif" font-size="10" font-weight="400" fill="#8A8A8A" text-anchor="middle">Verstehen, was verbindet</text>
+</svg>
